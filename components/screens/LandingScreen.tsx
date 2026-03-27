@@ -51,7 +51,7 @@ export default function LandingScreen() {
             ))}
           </div>
           <span className="font-serif text-[1.1rem] italic text-slate font-normal">{CLINIC_STATS.rating}/5</span>
-          <span className="font-sans text-[9px] text-graphite/40 tracking-wide">from {CLINIC_STATS.totalReviews}+ verified reviews</span>
+          <span className="font-sans text-[10px] text-graphite/70 tracking-wide">from {CLINIC_STATS.totalReviews}+ verified reviews</span>
         </motion.div>
 
         {/* Value props */}
@@ -62,21 +62,21 @@ export default function LandingScreen() {
             { icon: "👨‍⚕️", label: "Expert Clinical Team", desc: "Led by Dr. Joe Stolte, GMC registered" },
           ].map(({ icon, label, desc }) => (
             <div key={label} className="card px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-teal/8 flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
                 <span className="text-[16px]">{icon}</span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-sans text-[11px] text-slate font-bold tracking-wide">{label}</p>
-                <p className="font-sans text-[9px] text-graphite/40 mt-0.5">{desc}</p>
+                <p className="font-sans text-[9px] text-graphite/60 mt-0.5">{desc}</p>
               </div>
             </div>
           ))}
         </motion.div>
 
-        {/* Accreditation strip */}
+        {/* Accreditation strip on dark background */}
         <motion.div variants={item} className="space-y-2">
-          <p className="font-sans text-[8px] text-graphite/25 text-center tracking-[0.25em] uppercase">Registered & Accredited</p>
-          <div className="flex items-center justify-between gap-2 px-1">
+          <p className="font-sans text-[8px] text-graphite/50 text-center tracking-[0.25em] uppercase">Registered & Accredited</p>
+          <div className="bg-slate rounded-xl px-4 py-3 flex items-center justify-between gap-3">
             {ACCREDITATIONS.map((acc) => (
               <div key={acc.name} className="flex-1 flex items-center justify-center">
                 <Image
@@ -84,7 +84,7 @@ export default function LandingScreen() {
                   alt={acc.name}
                   width={48}
                   height={24}
-                  className="h-5 w-auto object-contain opacity-40"
+                  className="h-5 w-auto object-contain brightness-0 invert opacity-70"
                 />
               </div>
             ))}
@@ -104,7 +104,7 @@ export default function LandingScreen() {
         >
           Begin Analysis
         </button>
-        <p className="font-sans text-[9px] text-center text-graphite/30 tracking-widest uppercase">
+        <p className="font-sans text-[9px] text-center text-graphite/50 tracking-widest uppercase">
           Private · Secure · Image Not Stored
         </p>
       </motion.div>

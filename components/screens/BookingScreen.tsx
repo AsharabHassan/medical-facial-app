@@ -37,7 +37,7 @@ export default function BookingScreen() {
             <img src="/logo.svg" alt="MEDfacials" className="h-6" />
           </div>
           <div className="absolute bottom-3 left-3">
-            <p className="font-sans text-[9px] text-white/70 tracking-widest uppercase font-semibold">
+            <p className="font-sans text-[9px] text-white/80 tracking-widest uppercase font-semibold">
               Step 03 / 03
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function BookingScreen() {
               className="w-full rounded-xl"
             />
           </div>
-          <p className="font-sans text-[8px] text-graphite/25 text-center tracking-widest uppercase">
+          <p className="font-sans text-[9px] text-graphite/45 text-center tracking-widest uppercase">
             Why Patients Choose MEDfacials
           </p>
         </motion.div>
@@ -75,12 +75,12 @@ export default function BookingScreen() {
             </div>
             <div>
               <h4 className="font-serif text-[1rem] italic text-slate">Dr. Joe Stolte</h4>
-              <p className="font-sans text-[9px] text-teal/60 font-semibold tracking-wide uppercase">
+              <p className="font-sans text-[9px] text-teal/80 font-semibold tracking-wide uppercase">
                 Lead Aesthetic Practitioner · GMC Registered
               </p>
             </div>
           </div>
-          <p className="font-sans text-[10px] text-graphite/45 leading-relaxed">
+          <p className="font-sans text-[10px] text-graphite/65 leading-relaxed">
             Over a decade of experience in aesthetic medicine across two UK locations,
             combining clinical expertise with the latest non-surgical technologies.
           </p>
@@ -95,21 +95,21 @@ export default function BookingScreen() {
             { code: "03", text: "Bespoke treatment plan & timeline" },
             { code: "04", text: "No obligation — completely free" },
           ].map(({ code, text }) => (
-            <div key={code} className="flex items-start gap-3 py-3 border-b border-graphite/5 first:border-t">
-              <div className="w-5 h-5 rounded-full bg-coral/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div key={code} className="flex items-start gap-3 py-3 border-b border-graphite/8 first:border-t">
+              <div className="w-5 h-5 rounded-full bg-coral/12 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <span className="font-sans text-[8px] text-coral font-bold">{code}</span>
               </div>
-              <span className="font-sans text-[11px] text-graphite/55 leading-relaxed">{text}</span>
+              <span className="font-sans text-[11px] text-graphite/70 leading-relaxed">{text}</span>
             </div>
           ))}
         </motion.div>
 
-        {/* Accreditation strip */}
+        {/* Accreditation strip on dark background */}
         <motion.div variants={item} className="space-y-2 pt-1">
-          <p className="font-sans text-[8px] text-graphite/25 text-center tracking-[0.25em] uppercase">
+          <p className="font-sans text-[8px] text-graphite/50 text-center tracking-[0.25em] uppercase">
             Registered & Accredited
           </p>
-          <div className="flex items-center justify-between gap-2 px-1">
+          <div className="bg-slate rounded-xl px-4 py-3 flex items-center justify-between gap-3">
             {ACCREDITATIONS.map((acc) => (
               <div key={acc.name} className="flex-1 flex items-center justify-center">
                 <Image
@@ -117,7 +117,7 @@ export default function BookingScreen() {
                   alt={acc.name}
                   width={48}
                   height={24}
-                  className="h-5 w-auto object-contain opacity-35"
+                  className="h-5 w-auto object-contain brightness-0 invert opacity-70"
                 />
               </div>
             ))}
@@ -147,13 +147,13 @@ export default function BookingScreen() {
         </a>
         <div className="flex gap-2">
           <button
-            className="flex-1 font-sans text-[9px] text-graphite/25 tracking-widest uppercase hover:text-graphite/40 transition-colors py-2 font-semibold"
+            className="flex-1 font-sans text-[9px] text-graphite/40 tracking-widest uppercase hover:text-graphite/60 transition-colors py-2 font-semibold"
             onClick={() => dispatch({ type: "SET_SCREEN", screen: "results" })}
           >
             Review Results
           </button>
           <button
-            className="flex-1 font-sans text-[9px] text-graphite/25 tracking-widest uppercase hover:text-graphite/40 transition-colors py-2 font-semibold"
+            className="flex-1 font-sans text-[9px] text-graphite/40 tracking-widest uppercase hover:text-graphite/60 transition-colors py-2 font-semibold"
             onClick={() => dispatch({ type: "RESET" })}
           >
             New Analysis

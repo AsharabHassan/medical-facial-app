@@ -27,13 +27,13 @@ export default function TreatmentCard({ treatment }: Props) {
           <h4 className="font-serif text-[1.1rem] italic text-slate leading-tight">
             {treatment.name}
           </h4>
-          <p className="font-sans text-[10px] text-teal/60 mt-0.5 font-semibold tracking-wide uppercase">
+          <p className="font-sans text-[10px] text-teal/80 mt-0.5 font-semibold tracking-wide uppercase">
             {treatment.timeline}
           </p>
         </div>
       </div>
 
-      <p className="font-sans text-[11px] text-graphite/55 leading-relaxed">
+      <p className="font-sans text-[11px] text-graphite/70 leading-relaxed">
         {treatment.reason}
       </p>
 
@@ -41,7 +41,7 @@ export default function TreatmentCard({ treatment }: Props) {
         {treatment.targetZones.map((zone) => (
           <span
             key={zone}
-            className="font-sans text-[9px] text-teal/70 bg-teal/8 px-2 py-0.5 rounded-full font-semibold tracking-wide"
+            className="font-sans text-[9px] text-teal/80 bg-teal/10 px-2 py-0.5 rounded-full font-semibold tracking-wide"
           >
             {zone}
           </span>
@@ -49,17 +49,17 @@ export default function TreatmentCard({ treatment }: Props) {
       </div>
 
       {expertise && (
-        <div className="bg-slate/[0.03] rounded-lg px-3 py-2.5 border border-slate/5">
-          <p className="font-sans text-[9px] text-teal/60 font-bold tracking-wide uppercase mb-1">
+        <div className="bg-slate/[0.04] rounded-lg px-3 py-2.5 border border-slate/8">
+          <p className="font-sans text-[9px] text-teal/80 font-bold tracking-wide uppercase mb-1">
             Dr. Stolte&apos;s Expertise
           </p>
-          <p className="font-sans text-[10px] text-graphite/50 leading-relaxed">
+          <p className="font-sans text-[10px] text-graphite/65 leading-relaxed">
             {expertise}
           </p>
         </div>
       )}
 
-      <div className="bg-ivory rounded-lg px-3 py-2.5 border border-coral/10">
+      <div className="bg-ivory rounded-lg px-3 py-2.5 border border-coral/15">
         <div className="flex items-center gap-1 mb-1.5">
           <div className="flex gap-0.5">
             {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -68,14 +68,14 @@ export default function TreatmentCard({ treatment }: Props) {
               </svg>
             ))}
           </div>
-          <span className="font-sans text-[9px] text-coral/60 font-semibold ml-1">
+          <span className="font-sans text-[9px] text-coral/80 font-semibold ml-1">
             Verified Patient
           </span>
         </div>
-        <p className="font-serif text-[11px] italic text-slate/70 leading-relaxed">
+        <p className="font-serif text-[11px] italic text-slate/80 leading-relaxed">
           &ldquo;{testimonial.quote}&rdquo;
         </p>
-        <p className="font-sans text-[9px] text-graphite/35 mt-1.5 font-semibold">
+        <p className="font-sans text-[9px] text-graphite/50 mt-1.5 font-semibold">
           — {testimonial.name}
         </p>
       </div>

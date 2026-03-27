@@ -19,16 +19,16 @@ export default function TreatmentPlan({ plan }: Props) {
       className="space-y-5"
     >
       {/* Plan Summary */}
-      <div className="border-l-[3px] border-coral/40 pl-4 py-1">
+      <div className="border-l-[3px] border-coral/50 pl-4 py-1">
         <p className="label-xs mb-1.5">Your Personalised Plan</p>
-        <p className="font-serif text-[1rem] italic text-slate/80 leading-relaxed">
+        <p className="font-serif text-[1rem] italic text-slate/85 leading-relaxed">
           {plan.planSummary}
         </p>
       </div>
 
       <div className="flex items-center gap-2 px-1">
-        <div className="w-1.5 h-1.5 rounded-full bg-teal/40" />
-        <p className="font-sans text-[10px] text-teal/60 font-semibold tracking-wide uppercase">
+        <div className="w-1.5 h-1.5 rounded-full bg-teal/50" />
+        <p className="font-sans text-[10px] text-teal/80 font-semibold tracking-wide uppercase">
           {plan.timelineNote}
         </p>
       </div>
@@ -53,12 +53,12 @@ export default function TreatmentPlan({ plan }: Props) {
             height={400}
             className="w-full h-40 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate/70 to-transparent" />
           <div className="absolute bottom-3 left-3 right-3">
             <p className="font-serif text-white text-[1rem] italic leading-tight">
               Truro&apos;s Trusted Aesthetic Clinic
             </p>
-            <p className="font-sans text-white/70 text-[10px] mt-0.5">
+            <p className="font-sans text-white/80 text-[10px] mt-0.5">
               Truro, Cornwall &bull; London
             </p>
           </div>
@@ -75,15 +75,15 @@ export default function TreatmentPlan({ plan }: Props) {
                 </svg>
               ))}
             </div>
-            <p className="font-sans text-[8px] text-graphite/40 mt-0.5">{CLINIC_STATS.totalReviews}+ Reviews</p>
+            <p className="font-sans text-[8px] text-graphite/60 mt-0.5">{CLINIC_STATS.totalReviews}+ Reviews</p>
           </div>
           <div className="card p-2.5 text-center">
             <p className="font-serif text-[1.3rem] italic text-teal leading-none">{CLINIC_STATS.yearsEstablished}</p>
-            <p className="font-sans text-[8px] text-graphite/40 mt-1">Years Established</p>
+            <p className="font-sans text-[8px] text-graphite/60 mt-1">Years Established</p>
           </div>
           <div className="card p-2.5 text-center">
             <p className="font-serif text-[1.3rem] italic text-slate leading-none">2</p>
-            <p className="font-sans text-[8px] text-graphite/40 mt-1">UK Locations</p>
+            <p className="font-sans text-[8px] text-graphite/60 mt-1">UK Locations</p>
           </div>
         </div>
 
@@ -95,42 +95,44 @@ export default function TreatmentPlan({ plan }: Props) {
             </div>
             <div>
               <h4 className="font-serif text-[1rem] italic text-slate">Dr. Joe Stolte</h4>
-              <p className="font-sans text-[10px] text-teal/60 font-semibold tracking-wide uppercase">
+              <p className="font-sans text-[10px] text-teal/80 font-semibold tracking-wide uppercase">
                 Lead Aesthetic Practitioner
               </p>
             </div>
           </div>
-          <p className="font-sans text-[11px] text-graphite/50 leading-relaxed">
+          <p className="font-sans text-[11px] text-graphite/70 leading-relaxed">
             GMC-registered medical professional with over a decade of experience in aesthetic medicine.
             Dr. Stolte leads a team of specialists across two UK locations, combining clinical
             expertise with the latest non-surgical technologies to deliver safe, natural-looking results.
           </p>
         </div>
 
-        {/* Accreditation Badges */}
+        {/* Accreditation Badges on dark background */}
         <div className="space-y-2">
-          <p className="font-sans text-[9px] text-graphite/30 text-center tracking-widest uppercase">
+          <p className="font-sans text-[9px] text-graphite/50 text-center tracking-widest uppercase">
             Registered &amp; Accredited
           </p>
-          <div className="grid grid-cols-3 gap-3">
-            {ACCREDITATIONS.map((acc) => (
-              <div key={acc.name} className="card p-2.5 flex items-center justify-center">
-                <Image
-                  src={acc.logo}
-                  alt={acc.name}
-                  width={80}
-                  height={40}
-                  className="h-8 w-auto object-contain opacity-60"
-                />
-              </div>
-            ))}
+          <div className="bg-slate rounded-xl p-4">
+            <div className="grid grid-cols-3 gap-4">
+              {ACCREDITATIONS.map((acc) => (
+                <div key={acc.name} className="flex items-center justify-center">
+                  <Image
+                    src={acc.logo}
+                    alt={acc.name}
+                    width={80}
+                    height={40}
+                    className="h-8 w-auto object-contain brightness-0 invert opacity-75"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Disclaimer */}
-      <div className="bg-slate/[0.03] rounded-xl p-4 border border-slate/5">
-        <p className="font-sans text-[10px] text-graphite/40 leading-relaxed text-center">
+      <div className="bg-slate/[0.05] rounded-xl p-4 border border-slate/10">
+        <p className="font-sans text-[10px] text-graphite/55 leading-relaxed text-center">
           {plan.disclaimer}
         </p>
       </div>

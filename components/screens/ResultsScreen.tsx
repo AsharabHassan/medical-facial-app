@@ -37,11 +37,11 @@ export default function ResultsScreen() {
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="label-xs">Facial Analysis Report</span>
-            <span className="font-sans text-[9px] text-teal/40 tracking-wider font-semibold uppercase">
+            <span className="font-sans text-[9px] text-teal/60 tracking-wider font-semibold uppercase">
               {analysisResult.faceShape} Face
             </span>
           </div>
-          <div className="w-full h-px bg-teal/15" />
+          <div className="w-full h-px bg-teal/20" />
           <h2 className="font-serif text-[2.6rem] font-normal italic text-slate leading-[1.05]">
             {leadData?.firstName ? `${leadData.firstName}'s` : "Your"}<br />
             Results.
@@ -57,20 +57,20 @@ export default function ResultsScreen() {
         </div>
 
         {/* Assessment summary */}
-        <div className="border-l-[3px] border-teal/30 pl-4 py-1 space-y-1.5">
+        <div className="border-l-[3px] border-teal/40 pl-4 py-1 space-y-1.5">
           <p className="label-xs">Assessment Summary</p>
-          <p className="font-serif text-[1rem] italic text-slate/70 leading-relaxed">
+          <p className="font-serif text-[1rem] italic text-slate/80 leading-relaxed">
             {analysisResult.overallSummary}
           </p>
         </div>
 
         {/* Glass-effect tab switcher with notification badge */}
-        <div className="flex gap-1 backdrop-blur-sm bg-white/70 rounded-xl p-1 border border-slate/[0.06] shadow-sm">
+        <div className="flex gap-1 backdrop-blur-sm bg-white/70 rounded-xl p-1 border border-slate/10 shadow-sm">
           <button
             className={`flex-1 py-2.5 rounded-lg font-sans text-[11px] font-bold tracking-wide uppercase transition-all ${
               activeTab === "zones"
                 ? "bg-white text-slate shadow-sm border-b-2 border-coral/60"
-                : "text-graphite/40 hover:text-graphite/60"
+                : "text-graphite/50 hover:text-graphite/70"
             }`}
             onClick={() => setActiveTab("zones")}
           >
@@ -80,7 +80,7 @@ export default function ResultsScreen() {
             className={`flex-1 py-2.5 rounded-lg font-sans text-[11px] font-bold tracking-wide uppercase transition-all relative ${
               activeTab === "plan"
                 ? "bg-white text-slate shadow-sm border-b-2 border-coral/60"
-                : "text-graphite/40 hover:text-graphite/60"
+                : "text-graphite/50 hover:text-graphite/70"
             }`}
             onClick={handlePlanTabClick}
           >
@@ -118,13 +118,13 @@ export default function ResultsScreen() {
 
         {activeTab === "plan" && !treatmentPlan && (
           <div className="card p-6 text-center">
-            <p className="font-sans text-[11px] text-graphite/40">
+            <p className="font-sans text-[12px] text-graphite/60">
               Treatment plan unavailable. Please book a consultation for personalised recommendations.
             </p>
           </div>
         )}
 
-        <p className="font-sans text-[9px] text-graphite/20 text-center leading-relaxed tracking-wide uppercase">
+        <p className="font-sans text-[9px] text-graphite/40 text-center leading-relaxed tracking-wide uppercase">
           AI-Generated · For Informational Purposes Only<br />
           Treatment Plans Confirmed at Consultation
         </p>
