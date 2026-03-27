@@ -46,22 +46,18 @@ export default function FaceOverlay({ imageDataUrl, zones, activeZoneId, onZoneC
         const isActive = activeZoneId === zone.id;
         const hasConcern = zone.concerns.some((c) => c.severity !== "none");
 
+        const dotR = r * 0.55;
+
         ctx.beginPath();
-        ctx.arc(x, y, r + 4, 0, Math.PI * 2);
+        ctx.arc(x, y, dotR + 4, 0, Math.PI * 2);
         ctx.strokeStyle = isActive ? "#4CA6A2" : hasConcern ? "rgba(76,166,162,0.6)" : "rgba(58,71,77,0.3)";
         ctx.lineWidth = 2;
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.arc(x, y, dotR, 0, Math.PI * 2);
         ctx.fillStyle = isActive ? "#4CA6A2" : hasConcern ? "rgba(76,166,162,0.85)" : "rgba(58,71,77,0.2)";
         ctx.fill();
-
-        ctx.font = `bold ${r * 1.1}px system-ui, sans-serif`;
-        ctx.fillStyle = isActive || hasConcern ? "#FFFFFF" : "rgba(58,71,77,0.8)";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(String(zone.id), x, y + 1);
       });
     };
     img.src = imageDataUrl;
