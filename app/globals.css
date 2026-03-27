@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FFF9EF;
+    color: #4A4A4A;
+    font-family: var(--font-mulish), system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .screen {
+    @apply min-h-screen max-w-md mx-auto flex flex-col px-6 py-10;
+  }
+
+  .btn-coral {
+    @apply relative overflow-hidden font-sans font-bold text-white uppercase transition-all duration-300 px-8 py-4 block rounded-lg;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    background: linear-gradient(180deg, #F8B188 0%, #E89A6E 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 4px 20px rgba(248,177,136,0.25);
+  }
+
+  .btn-coral::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn-coral:hover::after {
+    opacity: 1;
+    animation: shimmer 0.6s ease forwards;
+  }
+
+  .btn-coral:active {
+    transform: scale(0.99);
+  }
+
+  .btn-outline {
+    @apply relative font-sans font-bold uppercase transition-all duration-300 px-8 py-4 block rounded-lg;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    border: 1px solid rgba(76,166,162,0.4);
+    color: rgba(76,166,162,0.9);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    border-color: #4CA6A2;
+    color: #4CA6A2;
+    background: rgba(76,166,162,0.05);
+  }
+
+  .btn-outline:active {
+    transform: scale(0.99);
+  }
+
+  .label-xs {
+    font-family: var(--font-mulish), system-ui, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(76,166,162,0.7);
+    font-weight: 600;
+  }
+
+  .input-field {
+    @apply w-full bg-white py-3 px-4 font-sans font-normal focus:outline-none transition-colors duration-300 rounded-lg;
+    font-size: 14px;
+    color: #3A474D;
+    border: 1px solid rgba(58,71,77,0.12);
+  }
+
+  .input-field::placeholder {
+    color: rgba(58,71,77,0.3);
+  }
+
+  .input-field:focus {
+    border-color: #F8B188;
+    box-shadow: 0 0 0 3px rgba(248,177,136,0.1);
+  }
+
+  .card {
+    background: #FFFFFF;
+    border: 1px solid rgba(58,71,77,0.08);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .coral-line {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: rgba(248,177,136,0.5);
+    border-radius: 1px;
+  }
+
+  .ruled-line {
+    @apply flex items-center gap-3;
+  }
+
+  .ruled-line::before,
+  .ruled-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(76,166,162,0.2);
+  }
+}
