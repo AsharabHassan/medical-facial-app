@@ -57,13 +57,15 @@ export default function LandingScreen() {
         {/* Value props */}
         <motion.div variants={item} className="w-full space-y-2">
           {[
-            { icon: "🔬", label: "AI-Powered 8-Zone Analysis", desc: "Advanced facial mapping technology" },
-            { icon: "📋", label: "Personalised Treatment Plan", desc: "Tailored recommendations for your skin" },
-            { icon: "👨‍⚕️", label: "Expert Clinical Team", desc: "Led by Dr. Joe Stolte, GMC registered" },
-          ].map(({ icon, label, desc }) => (
+            { label: "AI-Powered 8-Zone Analysis", desc: "Advanced facial mapping technology", iconPath: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
+            { label: "Personalised Treatment Plan", desc: "Tailored recommendations for your skin", iconPath: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+            { label: "Expert Clinical Team", desc: "Led by Dr. Joe Stolte, GMC registered", iconPath: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+          ].map(({ label, desc, iconPath }) => (
             <div key={label} className="card px-4 py-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-[16px]">{icon}</span>
+                <svg className="w-4.5 h-4.5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
+                </svg>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-sans text-[11px] text-slate font-bold tracking-wide">{label}</p>

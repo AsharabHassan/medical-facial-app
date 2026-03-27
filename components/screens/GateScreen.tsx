@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useApp } from "@/lib/store";
@@ -159,16 +158,6 @@ export default function GateScreen() {
           </button>
         </form>
 
-        {/* Mini accreditation strip on dark background */}
-        <div className="bg-slate rounded-lg px-4 py-2.5 flex items-center justify-center gap-6">
-          {[
-            { src: "/clinic/cqc-logo.svg", alt: "CQC" },
-            { src: "/clinic/GMC-Logo.svg", alt: "GMC" },
-            { src: "/clinic/save-face.svg", alt: "Save Face" },
-          ].map((acc) => (
-            <Image key={acc.alt} src={acc.src} alt={acc.alt} width={50} height={24} className="h-5 w-auto brightness-0 invert opacity-80" />
-          ))}
-        </div>
       </motion.div>
     </div>
   );
