@@ -13,11 +13,17 @@ export default function ResultsScreen() {
   const { state, dispatch } = useApp();
   const [activeZoneId, setActiveZoneId] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>("zones");
+  const [planTabSeen, setPlanTabSeen] = useState(false);
   const { analysisResult, treatmentPlan, imageDataUrl, leadData } = state;
 
   if (!analysisResult || !imageDataUrl) {
     dispatch({ type: "SET_SCREEN", screen: "landing" });
     return null;
+  }
+
+  function handlePlanTabClick() {
+    setActiveTab("plan");
+    setPlanTabSeen(true);
   }
 
   return (
@@ -42,19 +48,15 @@ export default function ResultsScreen() {
           </h2>
         </div>
 
+        {/* Clean face photo — no markers */}
         <div className="relative">
           <FaceOverlay
             imageDataUrl={imageDataUrl}
             zones={analysisResult.zones}
-            activeZoneId={activeZoneId}
-            onZoneClick={setActiveZoneId}
           />
-          <div className="mt-2 flex items-center justify-between">
-            <span className="font-sans text-[9px] text-graphite/25 tracking-widest uppercase">Tap zone to inspect</span>
-            <span className="font-sans text-[9px] text-teal/35 font-semibold">{analysisResult.zones.length} Zones</span>
-          </div>
         </div>
 
+        {/* Assessment summary */}
         <div className="border-l-[3px] border-teal/30 pl-4 py-1 space-y-1.5">
           <p className="label-xs">Assessment Summary</p>
           <p className="font-serif text-[1rem] italic text-slate/70 leading-relaxed">
@@ -62,11 +64,12 @@ export default function ResultsScreen() {
           </p>
         </div>
 
-        <div className="flex gap-1 bg-slate/[0.04] rounded-xl p-1">
+        {/* Glass-effect tab switcher with notification badge */}
+        <div className="flex gap-1 backdrop-blur-sm bg-white/70 rounded-xl p-1 border border-slate/[0.06] shadow-sm">
           <button
             className={`flex-1 py-2.5 rounded-lg font-sans text-[11px] font-bold tracking-wide uppercase transition-all ${
               activeTab === "zones"
-                ? "bg-white text-slate shadow-sm"
+                ? "bg-white text-slate shadow-sm border-b-2 border-coral/60"
                 : "text-graphite/40 hover:text-graphite/60"
             }`}
             onClick={() => setActiveTab("zones")}
@@ -74,14 +77,24 @@ export default function ResultsScreen() {
             Zone Analysis
           </button>
           <button
-            className={`flex-1 py-2.5 rounded-lg font-sans text-[11px] font-bold tracking-wide uppercase transition-all ${
+            className={`flex-1 py-2.5 rounded-lg font-sans text-[11px] font-bold tracking-wide uppercase transition-all relative ${
               activeTab === "plan"
-                ? "bg-white text-slate shadow-sm"
+                ? "bg-white text-slate shadow-sm border-b-2 border-coral/60"
                 : "text-graphite/40 hover:text-graphite/60"
             }`}
-            onClick={() => setActiveTab("plan")}
+            onClick={handlePlanTabClick}
           >
             Treatment Plan
+            {/* Notification badge */}
+            {treatmentPlan && !planTabSeen && (
+              <span className="absolute -top-1 -right-1 flex items-center gap-1">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-coral" />
+                </span>
+                <span className="font-sans text-[7px] text-coral font-black tracking-wider">NEW</span>
+              </span>
+            )}
           </button>
         </div>
 

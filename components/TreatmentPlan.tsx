@@ -87,21 +87,6 @@ export default function TreatmentPlan({ plan }: Props) {
           </div>
         </div>
 
-        {/* Video */}
-        <div className="rounded-xl overflow-hidden">
-          <video
-            src="/clinic/Why_Medfacials.mp4"
-            controls
-            playsInline
-            preload="metadata"
-            poster="/clinic/clinic-medfacials-59-banner-2000x600px-c.jpg"
-            className="w-full rounded-xl"
-          />
-          <p className="font-sans text-[9px] text-graphite/30 mt-1.5 text-center tracking-wide uppercase">
-            Why Patients Choose MEDfacials
-          </p>
-        </div>
-
         {/* Dr. Stolte Credentials */}
         <div className="card p-4 space-y-2">
           <div className="flex items-center gap-3">

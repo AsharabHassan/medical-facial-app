@@ -40,18 +40,12 @@ export default function CaptureScreen() {
         </button>
       </div>
 
-      <div className="w-full flex items-center justify-between">
-        {["Face forward", "Good lighting", "No glasses"].map((tip) => (
-          <span key={tip} className="font-sans text-[9px] text-graphite/35 tracking-wide">{tip}</span>
-        ))}
-      </div>
-
       <div className="relative w-full rounded-2xl overflow-hidden" style={{ aspectRatio: "3/4" }}>
-        <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-teal/50 z-10 rounded-tl-2xl" />
-        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-teal/50 z-10 rounded-tr-2xl" />
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-teal/50 z-10 rounded-bl-2xl" />
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-teal/50 z-10 rounded-br-2xl" />
-        <div className="absolute inset-0 border border-teal/10 z-10 pointer-events-none rounded-2xl" />
+        {/* Softened corner marks */}
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-teal/30 z-10 rounded-tl-2xl" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-teal/30 z-10 rounded-tr-2xl" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-teal/30 z-10 rounded-bl-2xl" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-teal/30 z-10 rounded-br-2xl" />
 
         <div className="absolute inset-1 overflow-hidden bg-slate/5 rounded-xl">
           <video
@@ -62,15 +56,14 @@ export default function CaptureScreen() {
             className={`absolute inset-0 w-full h-full object-cover scale-x-[-1] transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}
           />
 
-          {isActive && (
-            <div
-              className="absolute inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-teal/60 to-transparent pointer-events-none animate-scan"
-              style={{ top: "20%" }}
-            />
-          )}
-
+          {/* Pulsing oval guide instead of scan line */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="border border-teal/25 rounded-full" style={{ width: "60%", height: "76%" }} />
+            <motion.div
+              className="border border-teal/20 rounded-full"
+              style={{ width: "60%", height: "76%" }}
+              animate={{ borderColor: ["rgba(76,166,162,0.15)", "rgba(76,166,162,0.35)", "rgba(76,166,162,0.15)"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
           </div>
 
           {error && (
@@ -93,6 +86,13 @@ export default function CaptureScreen() {
         </div>
       </div>
 
+      {/* Guidance text */}
+      <div className="flex items-center justify-center gap-4 w-full">
+        {["Centre your face", "Good lighting", "Neutral expression"].map((tip) => (
+          <span key={tip} className="font-sans text-[9px] text-graphite/35 tracking-wide">{tip}</span>
+        ))}
+      </div>
+
       <canvas ref={canvasRef} className="hidden" />
 
       {isActive && (
@@ -105,6 +105,11 @@ export default function CaptureScreen() {
           Capture Photo
         </motion.button>
       )}
+
+      {/* Privacy note */}
+      <p className="font-sans text-[8px] text-graphite/20 tracking-widest uppercase text-center">
+        Powered by AI · Your image is never stored
+      </p>
     </div>
   );
 }
