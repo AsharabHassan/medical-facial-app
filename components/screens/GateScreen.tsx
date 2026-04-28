@@ -26,6 +26,8 @@ export default function GateScreen() {
         email: data.email,
         phone: data.phone,
         marketingConsent: data.marketingConsent,
+        analysisResult: state.analysisResult,
+        treatmentPlan: state.treatmentPlan,
       }),
     }).catch((err) => console.error("Lead submission error:", err));
 
